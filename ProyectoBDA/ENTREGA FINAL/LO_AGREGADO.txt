@@ -1,0 +1,40 @@
+-se agregago una tabla nueva PrestadorCobertura
+	Esta tabla surge por que sino en la tabla cobertura de paciente
+	podias dar de alta "coberturas que no estaban declaradas" en
+	la base de datos.
+	COn esta nueva tabla declaras primero el prestador, despues las	
+	coberturas que brinda y por ultimo, en la tabla cobertura de paciente
+	podes utilizar se id de coberturaPrestador para relacionar
+-Se modifico la tabla Paciente_info.Cobertura
+	Ahora es como que das de alta el paciente con la cobertura antes
+	cargada....
+-Se creo una tabla estudios_Paciente 
+	Esta tabla relaciona el idHistoria del paciente con todos los estudios
+	que se realizo.
+	En realidad NO se pueden cargar estudios que no tengan un paciente 
+	relacionado, pero el JSON no da el nombre ni nada del paciente,
+	entonces haremos una tabla aparte que relacione el estudio con	
+	el paciente.
+-Se modifica la tabla estudio.
+	Se agrega id_estudio que trae el archivo importado
+
+SP: se modifica
+
+Paciente_info.InsertarCobertura
+		Ahora hay que insertar el id de coberturaPrestador
+		en vez del idPrestador... lo trae solo
+	se cambio la manera de evaluar las condiciones
+
+Prestador_Info.EliminarPrestador
+	Ahora se busca por la nueva tabla y se utiliza una CTE para mas
+	claridad
+
+Prestador_info.AltaCoberturaPrestador
+	ahora se inserta el plan y el id de prestador
+
+ Estudio_info.AgregarEstudio
+	Ahora agrega los datos generales a la tabla estudio, y Tambien 	
+		agrega los datos a la tabla pacienteEstudio
+
+se modificaron roles
+	
